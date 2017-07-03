@@ -79,6 +79,9 @@ public class DateAnnotationNormalizer extends DateNormalizer {
       
       if (text == null && annotationFeature.equals("string")) text = Utils.stringFor(document, date);
       
+      if (text == null)
+    	  throw new ExecutionException("No text to annotate!"); 
+      
       try {
         // try and parse the document content starting from the beginning of the
         // current token
